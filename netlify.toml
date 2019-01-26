@@ -1,6 +1,6 @@
 [build]
   base = "frontend/"
-  command = "yarn -cwd ./frontend build && make -C ./backend build"
+  command = "yarn -cwd ./frontend build && make -C ../backend build"
   functions = "backend/functions"
   publish = "frontend/build"
 
