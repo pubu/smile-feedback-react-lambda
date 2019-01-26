@@ -1,6 +1,6 @@
 [build]
   command = "yarn --cwd ./frontend install && yarn --cwd ./frontend build && make build"
-  functions = "backend/functions"
+  functions = "backend"
   publish = "frontend/build"
 
 [build.environment]
