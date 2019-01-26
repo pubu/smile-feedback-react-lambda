@@ -1,5 +1,5 @@
 [build]
-  command = "yarn --cwd ./frontend install && yarn --cwd ./frontend build"
+  command = "yarn --cwd ./frontend install && yarn --cwd ./frontend build && make -C ./backend build"
   functions = "backend/functions"
   publish = "frontend/build"
 
