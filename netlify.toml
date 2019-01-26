@@ -1,9 +1,9 @@
 [build]
-  command = "yarn build"
-  functions = "functions"
-  publish = "build"
+  command = "yarn -cwd ./frontend build && make -C ./backend build"
+  functions = "backend/functions"
+  publish = "frontend/build"
 
 [build.environment]
   # Change this path with the path to your repository
-  GO_IMPORT_PATH = "github.com/pubu/smile-feedback-react-lambda"
+  GO_IMPORT_PATH = "github.com/pubu/smile-feedback-react-lambda/backend"
 
