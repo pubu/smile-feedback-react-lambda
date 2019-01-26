@@ -6,5 +6,5 @@
 
 [build.environment]
   # Change this path with the path to your repository
-  GO_IMPORT_PATH = "github.com/pubu/smile-feedback-react-lambda/backend"
+  GO_IMPORT_PATH = "github.com/pubu/smile-feedback-react-lambda"
 
