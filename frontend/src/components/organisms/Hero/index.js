@@ -69,8 +69,9 @@ const Hero = (props) => {
             <strong>Das Angebot ist unverbindlich und kostenfrei!</strong>
             </SmallText>
             <form name="create-feedback-code" method="POST" data-netlify="true">
-              <SmallInput type="text" />
-              <ButtonC>Senden</ButtonC>
+              <SmallInput type="email" name="email" />
+              <ButtonC type="submit">Senden</ButtonC>
+              <input type="hidden" name="form-name" value="create-feedback-code" />
             </form>
       </InnerWrapper>
     </Wrapper>

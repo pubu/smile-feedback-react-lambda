@@ -13,6 +13,10 @@
   <link rel="icon" href="https://arc.js.org/icon.png" />
 </head>
 <body>
+  <!-- A little help for the Netlify post-processing bots -->
+  <form name="create-feedback-code" netlify netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email" />
+  </form>
 
   <main id="app"></main>
   <!-- JS file will be automatically added here by html-webpack-plugin -->
