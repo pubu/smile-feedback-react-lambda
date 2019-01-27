@@ -9,7 +9,7 @@
 # production
 /frontend/build
 /backend/service
-
+/frontend_bu
 /.netlify
 
 # misc
