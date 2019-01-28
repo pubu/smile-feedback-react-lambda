@@ -1,3 +1,6 @@
+html {
+  height:100%;
+}
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size:1rem;
+  background-image: linear-gradient(30deg,  #a3dfa6 0%, #b9e0af 40%, #a2d8a0 70%);
 }
 
 code {

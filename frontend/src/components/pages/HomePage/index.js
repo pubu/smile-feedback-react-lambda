@@ -79,18 +79,18 @@ class FeedbackCreateForm extends Component {
         <form name="create-feedback-code" onSubmit={this.handleSubmit('service')}>
           <div className="row">
             <div className="input-field col s6">
-              <i class="material-icons prefix">label</i>
+              <i className="material-icons prefix">label</i>
               <input type="text" name="feedback-name" id="feedback-name" onChange={this.handleLabelChange} required />
-              <label for="feedback-name">Bezeichnung</label>
+              <label htmlFor="feedback-name">Bezeichnung</label>
             </div>
             <div className="input-field col s6">
-              <i class="material-icons prefix">email</i>
+              <i className="material-icons prefix">email</i>
               <input type="email" name="email" id="email" onChange={this.handleEmailChange} required />
-              <label for="email">E-Mail-Adresse eintragen</label>
+              <label htmlFor="email">E-Mail-Adresse eintragen</label>
             </div>
             <div className="col s6">
-              <button class="btn waves-effect waves-light" type="submit" name="action">Anfordern
-                <i class="material-icons right">send</i>
+              <button className="btn black waves-effect waves-light" type="submit" name="action">Anfordern
+                <i className="material-icons right">send</i>
               </button>            
             </div>
           </div>
