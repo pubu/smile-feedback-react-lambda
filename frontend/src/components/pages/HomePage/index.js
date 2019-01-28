@@ -5,7 +5,6 @@ import './index.css';
 class FeedbackCreateForm extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = { loading: false, redirectUrl: null, qrCode:null };
   }
 
@@ -15,6 +14,7 @@ class FeedbackCreateForm extends Component {
     let baseUrl = '/.netlify/functions/';
 
     this.setState({ loading: true });
+    this.setState({ loading: false, redirectUrl: "/dashboard/abc", qrCode:'abc' })
     fetch(baseUrl + api)
       .then(response => response.json())
       .then(json => this.setState({ loading: false, redirectUrl: json.url, qrCode:json.code }));
@@ -24,9 +24,11 @@ class FeedbackCreateForm extends Component {
     const { loading, redirectUrl, qrCode } = this.state;
 
     if(redirectUrl){
-      console.log(redirectUrl, qrCode);
-      this.props.qrCode = qrCode;
-      return  <Redirect to={redirectUrl} />
+      return  <Redirect to={{
+          pathname: redirectUrl,
+          state: { qrCode: qrCode }
+        }}
+      />
     }
 
     if (loading){
