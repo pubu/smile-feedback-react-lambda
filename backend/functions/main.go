@@ -83,7 +83,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		fmt.Println(response.Headers)
 	}
 
-	redirectURL := fmt.Sprintf("https://www.smile-feedback.de/dashboard/?t=%s", token)
+	redirectURL := fmt.Sprintf("/dashboard/?t=%s", token)
 	r := Response{
 		Url: redirectURL,
 	}
