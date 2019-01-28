@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	b64 "encoding/base64"
 
@@ -23,6 +24,11 @@ import (
 type Response struct {
 	Url    string `json:"url"`
 	QrCode string `json:"code"`
+}
+
+type jsonData struct {
+	email string
+	label string
 }
 
 func createTokenRecord(email string, qrcode string, token string) {
@@ -53,9 +59,17 @@ func createTokenRecord(email string, qrcode string, token string) {
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	fmt.Println("Received body: ", request.Body)
 
+	// decode json
+	decoder := json.NewDecoder(strings.NewReader(request.Body))
+	var d jsonData
+	err := decoder.Decode(&d)
+	if err != nil {
+		panic(err)
+	}
+
 	token := xid.New()
 	var emailStr string
-	emailStr = "p.dircksen@gmail.com"
+	emailStr = d.email
 	// create qr code
 	url := fmt.Sprintf("https://www.smile-feedback.de/vote/%s", token)
 	png, err := qrcode.Encode(url, qrcode.Medium, 256)

@@ -5,7 +5,15 @@ import './index.css';
 class FeedbackCreateForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: false, redirectUrl: null, qrCode:null };
+    this.state = {
+      emailValue: null,
+      labelValue: null, 
+      loading: false, 
+      redirectUrl: null, 
+      qrCode:null };
+
+    this.handleLabelChange = this.handleLabelChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
   handleSubmit = api => e => {
@@ -14,10 +22,42 @@ class FeedbackCreateForm extends Component {
     let baseUrl = '/.netlify/functions/';
 
     this.setState({ loading: true });
-    fetch(baseUrl + api)
+    /* send to service */
+    fetch(baseUrl + api, {
+          method: 'post',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({email: this.state.emailValue, label: this.state.labelValue})
+        }
+      )
       .then(response => response.json())
-      .then(json => this.setState({ loading: false, redirectUrl: json.url, qrCode:json.code }));
+      .then(json => { 
+        this.setState({ loading: false, redirectUrl: json.url, qrCode:json.code }); 
+
+        let saveKey = this.state.emailValue + "-" + this.state.labelValue;
+        
+        // save data
+        let feedbackCodeData = localStorage.getItem('fc-data') || {};
+        feedbackCodeData[saveKey] = {
+          code:json.code, 
+          rUrl:json.url, 
+          email:this.state.emailValue,
+          label: this.state.labelValue
+        }
+
+        localStorage.setItem('fC-data', JSON.stringify(feedbackCodeData));
+      });
   };
+
+  handleEmailChange(event){
+    this.setState({emailValue: event.target.value});
+  }
+
+  handleLabelChange(event){
+    this.setState({labelValue: event.target.value});
+  }
 
   render() {
     const { loading, redirectUrl, qrCode } = this.state;
@@ -39,9 +79,14 @@ class FeedbackCreateForm extends Component {
         <form name="create-feedback-code" onSubmit={this.handleSubmit('service')}>
           <div className="row">
             <div className="input-field col s6">
+              <i class="material-icons prefix">label</i>
+              <input type="text" name="feedback-name" id="feedback-name" onChange={this.handleLabelChange} required />
+              <label for="feedback-name">Bezeichnung</label>
+            </div>
+            <div className="input-field col s6">
               <i class="material-icons prefix">email</i>
-              <input type="email" name="email" id="email" placeholder="E-Mail-Adresse eintragen" required />
-              <label for="email">E-Mail-Adresse</label>
+              <input type="email" name="email" id="email" onChange={this.handleEmailChange} required />
+              <label for="email">E-Mail-Adresse eintragen</label>
             </div>
             <div className="col s6">
               <button class="btn waves-effect waves-light" type="submit" name="action">Anfordern
