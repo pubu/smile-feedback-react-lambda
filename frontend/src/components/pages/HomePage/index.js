@@ -39,7 +39,7 @@ class FeedbackCreateForm extends Component {
         let saveKey = this.state.emailValue + "-" + this.state.labelValue;
         
         // save data
-        let feedbackCodeData = localStorage.getItem('fc-data') || {};
+        let feedbackCodeData = localStorage.getItem('fC-data') || {};
         feedbackCodeData[saveKey] = {
           code:json.code, 
           rUrl:json.url, 

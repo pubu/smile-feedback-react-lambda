@@ -5,8 +5,12 @@ class DashboardPage extends Component {
   render() {
     return (
       <div className="DashboardPage row">
-        Dashboard
-        <img src={"data:image/png;base64," + this.props.location.state.qrCode} />
+        <div className="col s6 offset-s3">
+          <h1>Dashboard</h1>
+        </div>
+        <div className="col s4 offset-s4">
+            <img src={"data:image/png;base64," + this.props.location.state.qrCode} />
+        </div>
       </div>
     );
   }
