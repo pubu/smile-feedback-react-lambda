@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
 import NotFoundPage from './pages/NotFoundPage'
 
-const App = () => {
+const App = (routeProps) => {
   return (
       <Switch>
         <Route path="/" render={routeProps => <HomePage {...routeProps} />} exact />

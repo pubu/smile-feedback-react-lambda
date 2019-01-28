@@ -5,6 +5,7 @@ import './index.css';
 class FeedbackCreateForm extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = { loading: false, redirectUrl: null, qrCode:null };
   }
 
