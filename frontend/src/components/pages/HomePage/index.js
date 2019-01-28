@@ -11,16 +11,19 @@ class FeedbackCreateForm extends Component {
   handleSubmit = api => e => {
     e.preventDefault();
 
+    let baseUrl = '/.netlify/functions/';
+    
     this.setState({ loading: true });
-    fetch('/.netlify/functions/' + api)
+    fetch(baseUrl + api)
       .then(response => response.json())
-      .then(json => this.setState({ loading: false, redirectUrl: json.Url }));
+      .then(json => this.setState({ loading: false, redirectUrl: json.url }));
   };
 
   render() {
     const { loading, redirectUrl } = this.state;
 
     if(redirectUrl){
+      console.log(redirectUrl);
       return  <Redirect to={redirectUrl} />
     }
 
