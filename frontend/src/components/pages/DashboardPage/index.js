@@ -9,7 +9,7 @@ class DashboardPage extends Component {
           <h1>Dashboard</h1>
         </div>
         <div className="col s4 offset-s4">
-            <img src={"data:image/png;base64," + this.props.location.state.qrCode} />
+            <img className="feedback-code" src={"data:image/png;base64," + this.props.location.state.qrCode} />
         </div>
       </div>
     );
