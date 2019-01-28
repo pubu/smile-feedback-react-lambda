@@ -65,7 +65,7 @@ class HomePage extends Component {
           Jetzt E-Mail-Adresse eintragen und deinen persönlichen Feedback-Code sichern. Den Feedback-Code kannst du überall ganz bequem platzieren und die Bewertung auswerten.
           <br/><br/><strong>Das Angebot ist unverbindlich und kostenfrei!</strong>
           </p>
-          <FeedbackCreateForm />
+          <FeedbackCreateForm {...this.props} />
         </header>
     
         <div className="col s6 offset-s3">

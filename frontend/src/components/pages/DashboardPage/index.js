@@ -6,7 +6,7 @@ class DashboardPage extends Component {
     return (
       <div className="DashboardPage row">
         Dashboard
-        <img src={this.props.qrCode} />
+        <img src={"data:image/png;base64," + this.props.qrCode} />
       </div>
     );
   }
