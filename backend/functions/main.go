@@ -21,7 +21,8 @@ import (
 
 // Response message
 type Response struct {
-	Url string `json:"url"`
+	Url    string `json:"url"`
+	QrCode string `json:"code"`
 }
 
 func createTokenRecord(email string, qrcode string, token string) {
@@ -56,7 +57,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	var emailStr string
 	emailStr = "p.dircksen@gmail.com"
 	// create qr code
-	url := fmt.Sprintf("https://www.smile-feedback.de/vote/?t=%s", token)
+	url := fmt.Sprintf("https://www.smile-feedback.de/vote/%s", token)
 	png, err := qrcode.Encode(url, qrcode.Medium, 256)
 	if err != nil {
 		return events.APIGatewayProxyResponse{}, err
@@ -85,7 +86,8 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 	redirectURL := fmt.Sprintf("/dashboard/%s", token)
 	r := Response{
-		Url: redirectURL,
+		Url:    redirectURL,
+		QrCode: uEnc,
 	}
 	rbytes, err := json.Marshal(r)
 	if err != nil {

@@ -8,9 +8,10 @@ import NotFoundPage from './pages/NotFoundPage'
 const App = () => {
   return (
       <Switch>
-        <Route path="/" component={HomePage} exact />
-        <Route path="/dashboard/:token" component={DashboardPage} />
-        <Route component={NotFoundPage} />
+        <Route path="/" render={routeProps => <HomePage {...routeProps} />} exact />
+        <Route path="/dashboard/:token" render={routeProps => <DashboardPage {...routeProps} />} />
+        <Route path="/vote/:token" render={routeProps => <DashboardPage {...routeProps} />} />
+        <Route  render={routeProps => <NotFoundPage {...routeProps} />} />
       </Switch>
   )
 }
