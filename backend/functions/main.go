@@ -71,7 +71,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	var emailStr string
 	emailStr = d.email
 	// create qr code
-	url := fmt.Sprintf("https://www.smile-feedback.de/vote/%s", token)
+	url := fmt.Sprintf("%s/vote/%s", os.Getenv("SITE_URL"), token)
 	png, err := qrcode.Encode(url, qrcode.Medium, 256)
 	if err != nil {
 		return events.APIGatewayProxyResponse{}, err
@@ -80,13 +80,18 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	uEnc := b64.StdEncoding.EncodeToString(png)
 	// handle token - use backendless to create record
 	createTokenRecord(emailStr, uEnc, token.String())
+	// dashboard link
+	redirectURL := fmt.Sprintf("/dashboard/%s", token)
+	redirectURLWithBase := fmt.Sprintf("%s%s", os.Getenv("SITE_URL"), redirectURL)
 	// create mailing - use sendgrid
 	from := mail.NewEmail("smile-feedback ", "info@smile-feedback.de")
 	subject := "www.smile-feedback.de - Ihr Feedback-Code"
 	to := mail.NewEmail("Paul", "p.dircksen@gmail.com")
 	plainTextContent := "Hallo, vielen Dank für die Nutzung von www.smile-feedback.de. Über den nachfolgenden Link gelangen Sie zu Ihrem persönlichen Bereich. Auf der Seite können Sie den personalisierten Feedback-Code einsehen und herunterladen."
-	htmlContent := "<html><style>body{font-family: arial;}</style><body>Hallo,<br>vielen Dank für die Nutzung von www.smile-feedback.de.<br><br>Über den nachfolgenden Link gelangen Sie zu Ihrem persönlichen Bereich.<br>Auf der Seite können Sie den personalisierten Feedback-Code einsehen und herunterladen.</body></html>"
-	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
+	htmlContent := "<html><style>body{font-family: arial;}</style><body>Hallo,<br>vielen Dank für die Nutzung von www.smile-feedback.de.<br><br>Über den nachfolgenden Link gelangen Sie zu Ihrem persönlichen Bereich.<br>Auf der Seite können Sie den personalisierten Feedback-Code einsehen und herunterladen. <a href='%s'>zum Dashboard</a></body></html>"
+	htmlContentFilled := fmt.Sprintf(htmlContent, redirectURLWithBase)
+
+	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContentFilled)
 	client := sendgrid.NewSendClient(os.Getenv("SENDGRID_API_KEY"))
 	response, err := client.Send(message)
 	if err != nil {
@@ -98,7 +103,6 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		fmt.Println(response.Headers)
 	}
 
-	redirectURL := fmt.Sprintf("/dashboard/%s", token)
 	r := Response{
 		Url:    redirectURL,
 		QrCode: uEnc,
