@@ -11,6 +11,8 @@ const App = () => {
         <Route path="/" render={routeProps => <HomePage {...routeProps} />} exact />
         <Route path="/dashboard/:token" render={routeProps => <DashboardPage {...routeProps} />} />
         <Route path="/vote/:token" render={routeProps => <DashboardPage {...routeProps} />} />
+        <Route path="/impressum" render={routeProps => <DashboardPage {...routeProps} />} />
+        <Route path="/datenschutz" render={routeProps => <DashboardPage {...routeProps} />} />
         <Route  render={routeProps => <NotFoundPage {...routeProps} />} />
       </Switch>
   )
