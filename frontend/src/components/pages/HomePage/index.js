@@ -42,7 +42,7 @@ class FeedbackCreateForm extends Component {
         // save data
         let feedbackCodeData = localStorage.getItem('fC-data') || "{}";
         feedbackCodeData = JSON.parse(feedbackCodeData);
-        feedbackCodeData[saveKey] = {
+        feedbackCodeData[json.url] = {
           code:json.code, 
           rUrl:json.url, 
           email:this.state.emailValue,
