@@ -125,7 +125,7 @@ class HomePage extends Component {
           <p>Mit dem Feedback-Code kann auf einfache Art die Meinung von Besuchern und Benutzern eingesammelt werden. Dabei sind die Einsatzmöglichkeiten unbegrenzt. Ob im Taxi, im Kiosk, einer Veranstaltung, einer Party kann der Feedback-Code den Besuchern und Gästen die anonyme Bewertung ermöglichen. Überall wo eine Dienstleistung angeboten wird und Menschen zusammenkommen kann auf einfachem Wege die Meinung einfangen werden. Im Nachhinein kann die Bewertung auf bequeme Weise ausgewertet werden.</p>
           
           <h4>Wer kann den Feedback-Code verwenden?</h4>
-          <p>Das Angebot steht allen frei zur Verfügung und jeder kann den Feedback-Code einsetzen. Für die Verwendung wird ein Handy benötigt. . Auch kann der Feedback-Code über ein Widget auf einer Website oder in einer App eingebunden werden. Versuche es einfach aus, es ist ganz leicht.</p>
+          <p>Das Angebot steht allen frei zur Verfügung und jeder kann den Feedback-Code einsetzen. Für die Verwendung wird ein Handy benötigt. Auch kann der Feedback-Code über ein Widget auf einer Website oder in einer App eingebunden werden. Versuche es einfach aus, es ist ganz leicht.</p>
         </div>
       </div>
       <Footer />
