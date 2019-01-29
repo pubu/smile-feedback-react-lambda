@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../../organisms/Footer';
 import { Redirect } from 'react-router';
 import './index.css';
 
@@ -104,6 +105,7 @@ class FeedbackCreateForm extends Component {
 class HomePage extends Component {
   render() {
     return (
+      <div>
       <div className="HomePage row">
         <header className="HomePage-header col s12 l6 offset-l3">
           <h1 className="title t-c">:) Feedback</h1>
@@ -125,6 +127,8 @@ class HomePage extends Component {
           <h4>Wer kann den Feedback-Code verwenden?</h4>
           <p>Das Angebot steht allen frei zur Verfügung und jeder kann den Feedback-Code einsetzen. Für die Verwendung wird ein Handy benötigt. . Auch kann der Feedback-Code über ein Widget auf einer Website oder in einer App eingebunden werden. Versuche es einfach aus, es ist ganz leicht.</p>
         </div>
+      </div>
+      <Footer />
       </div>
     );
   }
