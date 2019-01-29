@@ -39,7 +39,8 @@ class FeedbackCreateForm extends Component {
         let saveKey = this.state.emailValue + "-" + this.state.labelValue;
         
         // save data
-        let feedbackCodeData = localStorage.getItem('fC-data') || {};
+        let feedbackCodeData = localStorage.getItem('fC-data') || "{}";
+        feedbackCodeData = JSON.parse(feedbackCodeData);
         feedbackCodeData[saveKey] = {
           code:json.code, 
           rUrl:json.url, 
@@ -78,17 +79,17 @@ class FeedbackCreateForm extends Component {
       return (
         <form name="create-feedback-code" onSubmit={this.handleSubmit('service')}>
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s12 l6">
               <i className="material-icons prefix">label</i>
               <input type="text" name="feedback-name" id="feedback-name" onChange={this.handleLabelChange} required />
               <label htmlFor="feedback-name">Bezeichnung</label>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s12 l6">
               <i className="material-icons prefix">email</i>
               <input type="email" name="email" id="email" onChange={this.handleEmailChange} required />
               <label htmlFor="email">E-Mail-Adresse eintragen</label>
             </div>
-            <div className="col s6">
+            <div className="col s12 l6">
               <button className="btn black waves-effect waves-light" type="submit" name="action">Anfordern
                 <i className="material-icons right">send</i>
               </button>            
@@ -104,7 +105,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className="HomePage row">
-        <header className="HomePage-header col s6 offset-s3">
+        <header className="HomePage-header col s12 l6 offset-l3">
           <h1 className="title t-c">:) Feedback</h1>
           <h2 >Und so einfach geht das!</h2>
           <p>
@@ -114,7 +115,7 @@ class HomePage extends Component {
           <FeedbackCreateForm {...this.props} />
         </header>
     
-        <div className="col s6 offset-s3">
+        <div className="col s12 l6 offset-l3">
           <h4>Was ist ein Feedback-Code?</h4>
           <p>Ein Feedback-Code ist ein QR-Code der von Interessenten gesannt werden kann, um im Anschluss ein Feedback in Form einer Bewertung für Sie zu hinterlassen.</p>
 
