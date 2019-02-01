@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Footer from '../../organisms/Footer';
+import Header from '../../organisms/Header';
+import ItemList from '../../organisms/ItemList';
 import { Redirect } from 'react-router';
 import './index.css';
 
@@ -106,9 +108,9 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+      <Header />
       <div className="HomePage row">
         <header className="HomePage-header col s12 l6 offset-l3">
-          <h1 className="title t-c">:) Feedback</h1>
           <h2 >Und so einfach geht das!</h2>
           <p>
           Jetzt E-Mail-Adresse eintragen und deinen persönlichen Feedback-Code sichern. Den Feedback-Code kannst du überall ganz bequem platzieren und die Bewertung auswerten.
@@ -116,7 +118,9 @@ class HomePage extends Component {
           </p>
           <FeedbackCreateForm {...this.props} />
         </header>
-    
+        <div className="col s12 l6 offset-l3">
+          <ItemList />
+        </div>
         <div className="col s12 l6 offset-l3">
           <h4>Was ist ein Feedback-Code?</h4>
           <p>Ein Feedback-Code ist ein QR-Code der von Interessenten gesannt werden kann, um im Anschluss ein Feedback in Form einer Bewertung für Sie zu hinterlassen.</p>
