@@ -6,6 +6,7 @@ class ItemList extends Component {
     let data = localStorage.getItem("fC-data");
     let dataObj = JSON.parse(data);
     let items = null;
+    console.log(dataObj);
     if(dataObj){
         items = Object.keys(dataObj).map((keyName, i) => (
             <li className="" key={i}>
