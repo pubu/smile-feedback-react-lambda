@@ -6,9 +6,13 @@ class DashboardPage extends Component {
     let dataKey = window.location.pathname;
     let storedData = localStorage.getItem('fC-data');
     let storedObj = JSON.parse(storedData);
-    let config = storedObj[dataKey];
+    let config = null;
+    if (storedData){
+      config = storedObj[dataKey];
+    }
+
     let qrCodeImage = '';
-    
+
     if(config){
       qrCodeImage = config['code'];
     }else{

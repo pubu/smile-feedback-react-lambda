@@ -37,10 +37,6 @@ class FeedbackCreateForm extends Component {
       )
       .then(response => response.json())
       .then(json => { 
-        this.setState({ loading: false, redirectUrl: json.url, qrCode:json.code }); 
-
-        let saveKey = this.state.emailValue + "-" + this.state.labelValue;
-        
         // save data
         let feedbackCodeData = localStorage.getItem('fC-data') || "{}";
         feedbackCodeData = JSON.parse(feedbackCodeData);
@@ -52,6 +48,7 @@ class FeedbackCreateForm extends Component {
         }
 
         localStorage.setItem('fC-data', JSON.stringify(feedbackCodeData));
+        this.setState({ loading: false, redirectUrl: json.url, qrCode:json.code }); 
       });
   };
 
