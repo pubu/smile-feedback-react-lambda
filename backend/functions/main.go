@@ -111,7 +111,11 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	if err != nil {
 		return events.APIGatewayProxyResponse{}, err
 	}
-	return events.APIGatewayProxyResponse{Body: string(rbytes), StatusCode: 200}, nil
+
+	resp := events.APIGatewayProxyResponse{Body: string(rbytes), StatusCode: 200}
+	resp.Headers["Access-Control-Allow-Origin"] = "*"
+
+	return resp, nil
 }
 
 func main() {
