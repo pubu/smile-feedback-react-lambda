@@ -28,7 +28,7 @@ class DashboardPage extends Component {
         <Header />
         <div className="DashboardPage row">
           <div className="col s6 offset-s3">
-            <h2>Dashboard: {label}</h2>
+            <h2 className="bb-4">Dashboard: {label}</h2>
           </div>
           <div className="col s3 offset-s3">
               <img alt="no-code" className="feedback-code" src={"data:image/png;base64," + qrCodeImage} />

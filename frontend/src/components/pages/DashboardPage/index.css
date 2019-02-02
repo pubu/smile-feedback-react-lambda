@@ -4,7 +4,7 @@
   display: block;
 }
 
-h2 {
+h2.bb-4 {
   padding: 1rem;
   border-bottom: 4px solid black;
 }
