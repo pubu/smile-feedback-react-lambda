@@ -1,5 +1,57 @@
 .feedback-code {
-  width:360px;
+  width:380px;
+  max-width: 100%;
   display: block;
-  margin:0 auto;
+}
+
+h2 {
+  padding: 1rem;
+  border-bottom: 4px solid black;
+}
+
+h5 {
+  margin-top:0;
+}
+
+ul li {
+  width: 100%;
+  float:left;
+}
+
+.btn.left {
+  margin-right: 1rem;
+}
+
+.btn.right {
+  margin-left: 1rem;
+}
+
+.col.actions {
+  margin-top:2rem;
+  padding:1rem;
+}
+
+.bar {
+  height: 6px;
+  width:0px;
+  float:left;
+  margin-top: 27px;
+  background-color:black;
+  transition: width 0.3s ease-out;
+}
+
+.bar.w1 {
+  width:10%;
+}
+
+.bar.w2 {
+  width:20%;
+}
+
+.bar.w3 {
+  width:30%;
+}
+
+.bar.w4 {
+  width:40%;
 }

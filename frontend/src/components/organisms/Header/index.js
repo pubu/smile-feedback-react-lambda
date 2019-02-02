@@ -7,7 +7,7 @@ class Header extends Component {
         <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper black">
-                <a href="#" className="brand-logo center">:) Feedback</a>
+                <a href="/" className="brand-logo center">:) Feedback</a>
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                 </ul>
                 </div>

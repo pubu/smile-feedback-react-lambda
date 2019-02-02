@@ -23,10 +23,10 @@ class FeedbackCreateForm extends Component {
     e.preventDefault();
 
     let baseUrl = '/.netlify/functions/';
-
     this.setState({ loading: true });
     /* send to service */
     fetch(baseUrl + api, {
+          mode: "no-cors",
           method: 'post',
           headers: {
             'Accept': 'application/json, text/plain, */*',
