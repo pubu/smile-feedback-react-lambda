@@ -27,13 +27,13 @@ class DashboardPage extends Component {
       <div>
         <Header />
         <div className="DashboardPage row">
-          <div className="col s12 l6 offset-l3">
+          <div className="col s12 l8 offset-l2">
             <h2 className="bb-4">Dashboard: {label}</h2>
           </div>
-          <div className="col s12 l3 offset-l3">
+          <div className="col s12 m5 offset-m1 l4 offset-l2">
               <img alt="no-code" className="feedback-code" src={"data:image/png;base64," + qrCodeImage} />
           </div>
-          <div className="col s12 l3">
+          <div className="col s12 m5 l4">
               <h5>Zusammenfassung</h5>
               <ul>
                 <li><i className="medium material-icons left">sentiment_very_satisfied</i><div className="bar w3"></div></li>
@@ -43,7 +43,7 @@ class DashboardPage extends Component {
                 <li><i className="medium material-icons left">sentiment_very_dissatisfied</i><div className="bar w1"></div></li>
               </ul>
           </div>
-          <div className="col s12 l6 offset-l3 actions black">
+          <div className="col s12 l8 offset-l2 actions black">
             <a href="/html-widget" className="waves-effect waves-light btn white black-text left">Widget anzeigen</a>
             <a href="/aufkleber-drucken" className="waves-effect waves-light btn white black-text left">Aufkleber drucken</a>
             <a href="/flyer-drucken" className="waves-effect waves-light btn white black-text left">Flyer drucken</a>
