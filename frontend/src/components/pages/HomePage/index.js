@@ -22,11 +22,10 @@ class FeedbackCreateForm extends Component {
   handleSubmit = api => e => {
     e.preventDefault();
 
-    let baseUrl = '/.netlify/functions/';
+    let baseUrl = "http://vps11954.alfahosting-vps.de:8082/"//'/.netlify/functions/';
     this.setState({ loading: true });
     /* send to service */
     fetch(baseUrl + api, {
-          mode: "no-cors",
           method: 'post',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -77,7 +76,7 @@ class FeedbackCreateForm extends Component {
       );
     }else{
       return (
-        <form name="create-feedback-code" onSubmit={this.handleSubmit('service')}>
+        <form name="create-feedback-code" onSubmit={this.handleSubmit('create-feedback-code')}>
           <div className="row">
             <div className="input-field col s12 l6">
               <i className="material-icons prefix">label</i>
