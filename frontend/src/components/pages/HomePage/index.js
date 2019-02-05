@@ -22,7 +22,7 @@ class FeedbackCreateForm extends Component {
   handleSubmit = api => e => {
     e.preventDefault();
 
-    let baseUrl = "http://vps11954.alfahosting-vps.de:8082/"//'/.netlify/functions/';
+    let baseUrl = "https://vps11954.alfahosting-vps.de/"//'/.netlify/functions/';
     this.setState({ loading: true });
     /* send to service */
     fetch(baseUrl + api, {
