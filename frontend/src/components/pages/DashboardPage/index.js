@@ -23,6 +23,9 @@ class DashboardPage extends Component {
       qrCodeImage = this.props.location.state.qrCode;
     }
 
+    const {token} = this.props.match.params;
+    let shareUrl = "https://" + window.location.host + "/vote/" + token;
+
     return (
       <div>
         <Header />
@@ -47,7 +50,7 @@ class DashboardPage extends Component {
             <a href="/html-widget" className="waves-effect waves-light btn white black-text left">Widget anzeigen</a>
             <a href="/aufkleber-drucken" className="waves-effect waves-light btn white black-text left">Aufkleber drucken</a>
             <a href="/flyer-drucken" className="waves-effect waves-light btn white black-text left">Flyer drucken</a>
-            <a href="/share" className="waves-effect waves-light btn white black-text right"><i className="material-icons right">share</i>Einladen</a>
+            <a href={"whatsapp://send?text=Hey! Deine Meinung ist gefragt. "+ shareUrl} data-action="share/whatsapp/share" className="waves-effect waves-light btn white black-text right"><i className="material-icons right">share</i>Einladen</a>
             <a href="/vote-url-copy" className="waves-effect waves-light btn white black-text right">Vote Link kopieren</a>
           </div>
         </div>

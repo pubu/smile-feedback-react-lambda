@@ -1,0 +1,11 @@
+.vote-link-wrapper {
+  margin-top: 40px;
+}
+
+.vote-link {
+  text-align:center;
+  width:100%;
+  display: block;
+  color: black;
+  cursor: pointer;
+}
