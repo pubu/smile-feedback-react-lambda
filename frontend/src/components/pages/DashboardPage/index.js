@@ -107,7 +107,7 @@ class DashboardPage extends Component {
         <Header />
         <div className="DashboardPage row">
           <div className="col s12 l8 offset-l2">
-            <h2 className="bb-4">Dashboard: {label}</h2>
+            <h2 className="bb-4">{label}</h2>
           </div>
 
           {this.state.summary.total > 0 && (
