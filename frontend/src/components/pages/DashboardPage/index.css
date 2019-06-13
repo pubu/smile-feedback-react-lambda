@@ -22,13 +22,17 @@ ul li {
   margin-right: 1rem;
 }
 
-.btn.right {
+.btn.float-right {
   margin-left: 1rem;
 }
 
 .col.actions {
   margin-top:2rem;
   padding:1rem;
+}
+
+.float-right {
+  float:right;
 }
 
 .bar {
@@ -40,18 +44,27 @@ ul li {
   transition: width 0.3s ease-out;
 }
 
-.bar.w1 {
-  width:10%;
+@media (max-width: 600px) {
+  .md-mt-2 {
+    margin-top: 2rem;
+  }
 }
 
-.bar.w2 {
-  width:20%;
-}
+@media (max-width: 700px){
+  .btn.float-right {
+    margin-left: 0rem;
+  }
 
-.bar.w3 {
-  width:30%;
-}
+  .actions .btn {
+    width:100%;
+    margin-bottom:1rem;
+  }
 
-.bar.w4 {
-  width:40%;
+  .actions .btn:last-child {
+    margin-bottom:0;
+  }
+
+  .float-right {
+    float:none;
+  }
 }
