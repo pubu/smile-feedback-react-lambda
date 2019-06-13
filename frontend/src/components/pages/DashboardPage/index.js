@@ -91,7 +91,7 @@ class DashboardPage extends Component {
 
     let result = [0,0,0,0,0];
     let tmpResults = [0,0,0,0,0];
-    if(this.state.summary){
+    if(this.state.summary && this.state.summary.total > 0){
       this.state.summary.hits.forEach(el => {
         let v_ = el._source.vote;
         tmpResults[v_-1]++;
