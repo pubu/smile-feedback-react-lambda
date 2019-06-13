@@ -81,6 +81,7 @@ class DashboardPage extends Component {
     
     }else if(this.state.record){
       qrCodeImage = this.state.record.hits[0]._source.qrcode;
+      label = this.state.record.hits[0]._source.label;
       
     }else if (this.props.location.state){
       qrCodeImage = this.props.location.state.qrCode;
