@@ -105,7 +105,7 @@ class DashboardPage extends Component {
 
     return (
       <div>
-        <Header />
+        <Header className="no-print" />
         <div className="DashboardPage row">
           <div className="col s12 l8 offset-l2">
             <h2 className="bb-4">{label}</h2>
@@ -115,8 +115,9 @@ class DashboardPage extends Component {
             <>
               <div className="col s12 m5 offset-m1 l4 offset-l2">
                 <img alt="no-code" className="feedback-code" src={"data:image/png;base64," + qrCodeImage} />
+                <p className="print-show">Feedback ganz einfach.<br/>QR-Code scannen und Bewertung abgeben.</p>
               </div>
-              <div className="col s12 m5 l4 md-mt-2">
+              <div className="col s12 m5 l4 md-mt-2 no-print">
                   <h5>Bewertung</h5>
                   <ul>
                     <li><i className="medium material-icons left">sentiment_very_satisfied</i><div className="bar" style={{width: result[4] + '%'}}></div></li>
@@ -132,10 +133,11 @@ class DashboardPage extends Component {
           {this.state.summary.total === 0 && (
               <div className="col s12 m6 offset-m3 l4 offset-l4">
                 <img alt="no-code" className="feedback-code" src={"data:image/png;base64," + qrCodeImage} />
+                <p className="print-show">Feedback ganz einfach.<br/>QR-Code scannen und Bewertung abgeben.</p>
               </div>
           )}
 
-          <div className="col s12 l8 offset-l2 actions black">
+          <div className="col s12 l8 offset-l2 actions black no-print">
             <a href="/html-widget" className="waves-effect waves-light btn white black-text left">Widget anzeigen</a>
             <button onClick={window.print} className="waves-effect waves-light btn white black-text left">Flyer drucken</button>
             <a href={"whatsapp://send?text=Hey! Deine Meinung ist gefragt. "+ shareUrl} data-action="share/whatsapp/share" className="waves-effect waves-light btn white black-text float-right"><i className="material-icons right">share</i>Einladen</a>

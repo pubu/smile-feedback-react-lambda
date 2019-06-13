@@ -4,7 +4,7 @@ import './index.css';
 class Header extends Component {
   render() {
     return (
-        <div className="navbar-fixed">
+        <div className="navbar-fixed no-print">
             <nav>
                 <div className="nav-wrapper black">
                 <a href="/" className="brand-logo center">:) Feedback</a>

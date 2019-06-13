@@ -43,6 +43,10 @@ ul li {
   transition: width 0.3s ease-out;
 }
 
+.print-show {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .md-mt-2 {
     margin-top: 2rem;
@@ -66,4 +70,20 @@ ul li {
   .float-right {
     float:none;
   }
+}
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+
+    .print-show {
+      display:block;
+    }
+
+    h2 {
+      margin-top:0px;
+    }
 }
