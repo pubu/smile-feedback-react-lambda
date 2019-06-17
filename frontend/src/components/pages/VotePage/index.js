@@ -4,6 +4,7 @@ import Header from '../../organisms/Header';
 import { Redirect } from 'react-router';
 import './index.css';
 
+const WS_BASE_URL = 'ws://vps11954.alfahosting-vps.de:3030';
 class VoteForm extends Component {
   constructor(props) {
     super(props);
@@ -25,10 +26,12 @@ class VoteForm extends Component {
         canVote = false;
       }
     }
-    
 
+    // update stream (ws)
+    let wsUrl = WS_BASE_URL + "/update-stream/" + token + "/ws";
 
     this.state = {
+      ws: new WebSocket(wsUrl),
       loading: false,
       canVote: canVote, 
       voteValue:null,
@@ -61,6 +64,8 @@ class VoteForm extends Component {
       }
 
       localStorage.setItem('fC-data-vote', JSON.stringify(voteData));
+      // send to update-stream
+      this.state.ws.send("update");
       this.setState({ loading: false, canVote: false}); 
     });
   }

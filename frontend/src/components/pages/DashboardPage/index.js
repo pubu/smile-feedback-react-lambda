@@ -3,9 +3,11 @@ import Footer from '../../organisms/Footer';
 import Header from '../../organisms/Header';
 import './index.css';
 
+const WS_BASE_URL = 'ws://vps11954.alfahosting-vps.de:3030';
 class DashboardPage extends Component {
 
   state = {
+    ws: false,
     record: false,
     summary: false
   }
@@ -22,6 +24,16 @@ class DashboardPage extends Component {
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ record:data.record, summary:data.summary }));
+
+    let wsUrl = WS_BASE_URL + "/update-stream/" + token + "/ws";
+    this.ws = new WebSocket(wsUrl);
+    
+    this.ws.onmessage = evt => {
+      // on receiving a message, update view
+      fetch(url)
+      .then(response => response.json())
+      .then(data => this.setState({ record:data.record, summary:data.summary }));
+    }
   }
 
   handleCopyUrlToClipboard(){
