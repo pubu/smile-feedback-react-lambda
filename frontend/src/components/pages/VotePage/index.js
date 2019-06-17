@@ -4,7 +4,7 @@ import Header from '../../organisms/Header';
 import { Redirect } from 'react-router';
 import './index.css';
 
-const WS_BASE_URL = 'ws://vps11954.alfahosting-vps.de:3030';
+const WS_BASE_URL = 'wss://vps11954.alfahosting-vps.de:3030';
 class VoteForm extends Component {
   constructor(props) {
     super(props);

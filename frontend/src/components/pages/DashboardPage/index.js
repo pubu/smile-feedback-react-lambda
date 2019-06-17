@@ -3,7 +3,7 @@ import Footer from '../../organisms/Footer';
 import Header from '../../organisms/Header';
 import './index.css';
 
-const WS_BASE_URL = 'ws://vps11954.alfahosting-vps.de:3030';
+const WS_BASE_URL = 'wss://vps11954.alfahosting-vps.de:3030';
 class DashboardPage extends Component {
 
   state = {
