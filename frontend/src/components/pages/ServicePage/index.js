@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as contentful from 'contentful';
 import Footer from '../../organisms/Footer';
 import Header from '../../organisms/Header';
+import Cookiebar from '../../organisms/Cookiebar';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './index.css';
 
@@ -50,6 +51,7 @@ class ServicePage extends Component {
           </div>
         </div>
         <Footer />
+        <Cookiebar />
         </>
       );
     }

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Footer from '../../organisms/Footer';
 import Header from '../../organisms/Header';
+import Cookiebar from '../../organisms/Cookiebar';
 import ItemList from '../../organisms/ItemList';
 import { Redirect } from 'react-router';
+
 import './index.css';
 
 class FeedbackCreateForm extends Component {
@@ -104,31 +106,32 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-      <Header />
-      <div className="HomePage row">
-        <header className="HomePage-header col s12 l6 offset-l3">
-          <h2 >Und so einfach geht das!</h2>
-          <p>
-          Jetzt E-Mail-Adresse eintragen und deinen persönlichen Feedback-Code sichern. Den Feedback-Code kannst du überall ganz bequem platzieren und die Bewertung auswerten.
-          <br/><br/><strong>Das Angebot ist unverbindlich und kostenfrei!</strong>
-          </p>
-          <FeedbackCreateForm {...this.props} />
-        </header>
-        <div className="col s12 l6 offset-l3">
-          <ItemList />
-        </div>
-        <div className="col s12 l6 offset-l3">
-          <h4>Was ist ein Feedback-Code?</h4>
-          <p>Ein Feedback-Code ist ein QR-Code der von Interessenten gesannt werden kann, um im Anschluss ein Feedback in Form einer Bewertung für Sie zu hinterlassen.</p>
+        <Header />
+        <div className="HomePage row">
+          <header className="HomePage-header col s12 l6 offset-l3">
+            <h2 >Und so einfach geht das!</h2>
+            <p>
+            Jetzt E-Mail-Adresse eintragen und deinen persönlichen Feedback-Code sichern. Den Feedback-Code kannst du überall ganz bequem platzieren und die Bewertung auswerten.
+            <br/><br/><strong>Das Angebot ist unverbindlich und kostenfrei!</strong>
+            </p>
+            <FeedbackCreateForm {...this.props} />
+          </header>
+          <div className="col s12 l6 offset-l3">
+            <ItemList />
+          </div>
+          <div className="col s12 l6 offset-l3">
+            <h4>Was ist ein Feedback-Code?</h4>
+            <p>Ein Feedback-Code ist ein QR-Code der von Interessenten gesannt werden kann, um im Anschluss ein Feedback in Form einer Bewertung für Sie zu hinterlassen.</p>
 
-          <h4>Wie kann ich den Feedback-Code nutzen?</h4>
-          <p>Mit dem Feedback-Code kann auf einfache Art die Meinung von Besuchern und Benutzern eingesammelt werden. Dabei sind die Einsatzmöglichkeiten unbegrenzt. Ob im Taxi, im Kiosk, einer Veranstaltung, einer Party kann der Feedback-Code den Besuchern und Gästen die anonyme Bewertung ermöglichen. Überall wo eine Dienstleistung angeboten wird und Menschen zusammenkommen kann auf einfachem Wege die Meinung einfangen werden. Im Nachhinein kann die Bewertung auf bequeme Weise ausgewertet werden.</p>
-          
-          <h4>Wer kann den Feedback-Code verwenden?</h4>
-          <p>Das Angebot steht allen frei zur Verfügung und jeder kann den Feedback-Code einsetzen. Für die Verwendung wird ein Handy benötigt. Auch kann der Feedback-Code über ein Widget auf einer Website oder in einer App eingebunden werden. Versuche es einfach aus, es ist ganz leicht.</p>
+            <h4>Wie kann ich den Feedback-Code nutzen?</h4>
+            <p>Mit dem Feedback-Code kann auf einfache Art die Meinung von Besuchern und Benutzern eingesammelt werden. Dabei sind die Einsatzmöglichkeiten unbegrenzt. Ob im Taxi, im Kiosk, einer Veranstaltung, einer Party kann der Feedback-Code den Besuchern und Gästen die anonyme Bewertung ermöglichen. Überall wo eine Dienstleistung angeboten wird und Menschen zusammenkommen kann auf einfachem Wege die Meinung einfangen werden. Im Nachhinein kann die Bewertung auf bequeme Weise ausgewertet werden.</p>
+            
+            <h4>Wer kann den Feedback-Code verwenden?</h4>
+            <p>Das Angebot steht allen frei zur Verfügung und jeder kann den Feedback-Code einsetzen. Für die Verwendung wird ein Handy benötigt. Auch kann der Feedback-Code über ein Widget auf einer Website oder in einer App eingebunden werden. Versuche es einfach aus, es ist ganz leicht.</p>
+          </div>
         </div>
-      </div>
-      <Footer />
+        <Footer />
+        <Cookiebar />
       </div>
     );
   }
