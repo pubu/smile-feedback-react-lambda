@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
 import NotFoundPage from './pages/NotFoundPage'
 import VotePage from './pages/VotePage';
+import ServicePage from './pages/ServicePage';
 
 const App = () => {
   return (
@@ -12,8 +13,7 @@ const App = () => {
         <Route path="/" render={routeProps => <HomePage {...routeProps} />} exact />
         <Route path="/dashboard/:token" render={routeProps => <DashboardPage {...routeProps} />} />
         <Route path="/vote/:token" render={routeProps => <VotePage {...routeProps} />} />
-        <Route path="/impressum" render={routeProps => <DashboardPage {...routeProps} />} />
-        <Route path="/datenschutz" render={routeProps => <DashboardPage {...routeProps} />} />
+        <Route path="/:slug" render={routeProps => <ServicePage {...routeProps} />} />
         <Route  render={routeProps => <NotFoundPage {...routeProps} />} />
       </Switch>
   )
